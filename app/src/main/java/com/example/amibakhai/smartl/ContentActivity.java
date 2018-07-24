@@ -11,7 +11,6 @@ import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import sample.foo.smartlocksample.R;
 
 public class ContentActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks,
