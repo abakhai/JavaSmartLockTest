@@ -2,7 +2,7 @@ package com.example.amibakhai.smartl;
 
 import android.content.Intent;
 import android.content.IntentSender;
-import android.support.design.widget.TextInputLayout;
+//import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
-
+import com.example.amibakhai.smartl.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.credentials.Credential;
 import com.google.android.gms.auth.api.credentials.CredentialRequest;
@@ -26,7 +26,6 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
-import sample.foo.smartlocksample.R;
 
 public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks,
@@ -45,9 +44,9 @@ public class MainActivity extends AppCompatActivity implements
 
     private Button mSignInButton;
     private ProgressBar mSignInProgressBar;
-    private TextInputLayout mUsernameTextInputLayout;
+    private EditText mUsernameTextInputLayout;
     private EditText mUsernameEditText;
-    private TextInputLayout mPasswordTextInputLayout;
+    private EditText mPasswordTextInputLayout;
     private EditText mPasswordEditText;
 
     @Override
@@ -66,8 +65,8 @@ public class MainActivity extends AppCompatActivity implements
             mIsRequesting = savedInstanceState.getBoolean(IS_REQUESTING);
         }
 
-        mUsernameTextInputLayout = (TextInputLayout) findViewById(R.id.usernameTextInputLayout);
-        mPasswordTextInputLayout = (TextInputLayout) findViewById(R.id.passwordTextInputLayout);
+        mUsernameTextInputLayout = (EditText) findViewById(R.id.usernameTextInputLayout);
+        mPasswordTextInputLayout = (EditText) findViewById(R.id.passwordTextInputLayout);
 
         mUsernameEditText = (EditText) findViewById(R.id.usernameEditText);
         mPasswordEditText = (EditText) findViewById(R.id.passwordEditText);
@@ -77,8 +76,8 @@ public class MainActivity extends AppCompatActivity implements
             @Override
             public void onClick(final View view) {
                 setSignInEnabled(false);
-                String username = mUsernameTextInputLayout.getEditText().getText().toString();
-                String password = mPasswordTextInputLayout.getEditText().getText().toString();
+                String username = mUsernameTextInputLayout.getText().toString();
+                String password = mPasswordTextInputLayout.getText().toString();
 
                 Credential credential = new Credential.Builder(username)
                         .setPassword(password)
